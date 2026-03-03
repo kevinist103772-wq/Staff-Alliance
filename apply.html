@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Yeseva+One&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Job Application</title>
+<link rel="icon" type="image/x-icon" href="icons/logo.svg">
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "e1s_7eLL3atjizmA5",
+      });
+   })();
+</script>
+<style>
+  .form-container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  .form-section {
+    display: none;
+  }
+  .form-section.active {
+    display: block;
+  }
+  .form-group {
+    margin-bottom: 20px;
+  }
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #0A4216;
+    font-size: 14px;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  .form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+  .form-row.full {
+    grid-template-columns: 1fr;
+  }
+  .family-member {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    border-left: 4px solid #2F6F4E;
+  }
+  .family-member h4 {
+    margin-top: 0;
+    color: #0A4216;
+  }
+  .btn-add-family {
+    background: #2F6F4E;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  .btn-add-family:hover {
+    background: #0A4216;
+  }
+  .form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    gap: 10px;
+  }
+  .btn-group {
+    display: flex;
+    gap: 10px;
+  }
+  .btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+  }
+  .btn-next, .btn-submit {
+    background: #0A4216;
+    color: #fff;
+  }
+  .btn-next:hover, .btn-submit:hover {
+    background: #2F6F4E;
+  }
+  .btn-back {
+    background: #ddd;
+    color: #333;
+  }
+  .btn-back:hover {
+    background: #bbb;
+  }
+  .progress-indicator {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 14px;
+  }
+  .page-title {
+    color: #0A4216;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #2F6F4E;
+    padding-bottom: 10px;
+  }
+  .work-experience, .education-record {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    border-left: 4px solid #2F6F4E;
+  }
+  .btn-add-work, .btn-add-edu {
+    background: #2F6F4E;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  .btn-add-work:hover, .btn-add-edu:hover {
+    background: #0A4216;
+  }
+  .success-message {
+    display: none;
+    background: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .error-message {
+    display: none;
+    background: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="home.html" class="logo">
+    <img src="icons/StaffAllianceLogo.svg" alt="Staff Alliance Logo" width="200" height="50">
+  </a>
+  <nav class="navbar">
+    <a href="aboutUs.html">About Us</a>
+    <a href="whatWeDo.html">What We Do</a>
+    <a href="jobs.html">Jobs</a>
+    <a href="update.html">Update</a>
+    <div class="dropdown">
+      <button class="dropbtn contact" onclick="window.location.href='contactUs.html'">Contact Us</button>
+      <div class="dropdown-content" style="display: none;">
+        <a href="contactUs.html">Apply Now</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="form-container">
+  <h1 style="color: #0A4216; text-align: center;">Job Application Form</h1>
+  
+  <div class="success-message" id="successMessage">
+    <strong>Application submitted successfully!</strong> Thank you for your interest. We will review your application shortly.
+  </div>
+  <div class="error-message" id="errorMessage"></div>
+
+  <form id="applicationForm">
+    <!-- PAGE 1: POSITION & PERSONAL INFO -->
+    <div class="form-section active" id="page1">
+      <div class="progress-indicator">Step 1 of 3: Personal Information</div>
+      <h2 class="page-title">Application Details & Personal Background</h2>
+
+      <div class="form-group">
+        <label for="position">Position Applied For *</label>
+        <select id="position" name="position" required>
+          <option value="">-- Select a Position --</option>
+          <option value="Office Staff">Office Staff</option>
+          <option value="Accounting Staff">Accounting Staff</option>
+          <option value="Bank Clerk">Bank Clerk</option>
+          <option value="Finance Assistant">Finance Assistant</option>
+          <option value="Customer Service Assistant">Customer Service Assistant</option>
+          <option value="Production Helper">Production Helper</option>
+          <option value="Janitor">Janitor</option>
+        </select>
+      </div>
+
+      <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
+      <h3 style="color: #0A4216; margin-bottom: 15px;">Personal Information</h3>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="surname">Surname *</label>
+          <input type="text" id="surname" name="surname" required>
+        </div>
+        <div class="form-group">
+          <label for="firstname">First Name *</label>
+          <input type="text" id="firstname" name="firstname" required>
+        </div>
+      </div>
+
+      <div class="form-row full">
+        <div class="form-group">
+          <label for="middlename">Middle Name</label>
+          <input type="text" id="middlename" name="middlename">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="presentaddress">Present Address *</label>
+        <input type="text" id="presentaddress" name="presentaddress" required>
+      </div>
+
+      <div class="form-group">
+        <label for="provincialaddress">Provincial Address</label>
+        <input type="text" id="provincialaddress" name="provincialaddress">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="telephone">Telephone No.</label>
+          <input type="tel" id="telephone" name="telephone">
+        </div>
+        <div class="form-group">
+          <label for="mobileno">Mobile No. *</label>
+          <input type="tel" id="mobileno" name="mobileno" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="emailaddress">Email Address *</label>
+        <input type="email" id="emailaddress" name="emailaddress" required>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="sex">Sex *</label>
+          <select id="sex" name="sex" required>
+            <option value="">-- Select --</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="civilstatus">Civil Status *</label>
+          <select id="civilstatus" name="civilstatus" required>
+            <option value="">-- Select --</option>
+            <option value="Single">Single</option>
+            <option value="Married">Married</option>
+            <option value="Divorced">Divorced</option>
+            <option value="Widowed">Widowed</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="birthdate">Birth Date *</label>
+        <input type="date" id="birthdate" name="birthdate" required>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="nationality">Nationality *</label>
+          <input type="text" id="nationality" name="nationality" value="Filipino" required>
+        </div>
+        <div class="form-group">
+          <label for="sssno">SSS No.</label>
+          <input type="text" id="sssno" name="sssno">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="tinno">TIN No.</label>
+          <input type="text" id="tinno" name="tinno">
+        </div>
+        <div class="form-group">
+          <label for="philhealthno">PhilHealth No.</label>
+          <input type="text" id="philhealthno" name="philhealthno">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="height">Height (cm)</label>
+          <input type="number" id="height" name="height" step="0.1">
+        </div>
+        <div class="form-group">
+          <label for="weight">Weight (kg)</label>
+          <input type="number" id="weight" name="weight" step="0.1">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="physicalcondition">Physical Condition</label>
+        <textarea id="physicalcondition" name="physicalcondition" placeholder="Any notable physical conditions"></textarea>
+      </div>
+
+      <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
+      <h3 style="color: #0A4216; margin-bottom: 15px;">Family Background</h3>
+
+      <div id="familyMembers">
+        <!-- family entries will be added dynamically; initial empty container -->
+      </div>
+
+      <button type="button" class="btn-add-family" onclick="addFamilyMember()">+ Add Family Member</button>
+
+      <div class="form-buttons">
+        <div></div>
+        <button type="button" class="btn btn-next" onclick="nextPage()">Next &rarr;</button>
+      </div>
+    </div>
+
+    <!-- PAGE 2: EDUCATIONAL BACKGROUND & WORK EXPERIENCE -->
+    <div class="form-section" id="page2">
+      <div class="progress-indicator">Step 2 of 3: Education & Experience</div>
+      <h2 class="page-title">Educational Background & Work Experience</h2>
+
+      <h3 style="color: #0A4216; margin-bottom: 15px;">Educational Background</h3>
+
+      <div id="educationRecords">
+        <!-- education entries will be added dynamically; initial empty container -->
+      </div>
+
+      <button type="button" class="btn-add-edu" onclick="addEducation()">+ Add Education Record</button>
+
+      <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
+      <h3 style="color: #0A4216; margin-bottom: 15px;">Work Experience</h3>
+
+      <div id="workExperience">
+        <div class="work-experience">
+          <div class="form-group">
+            <label>Company Name</label>
+            <input type="text" class="work-company">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Position</label>
+              <input type="text" class="work-position">
+            </div>
+            <div class="form-group">
+              <label>Duration (e.g., 2020-2023)</label>
+              <input type="text" class="work-duration">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Job Description</label>
+            <textarea class="work-description" placeholder="Brief description of your responsibilities"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" class="btn-add-work" onclick="addWorkExperience()">+ Add Work Experience</button>
+
+      <div class="form-buttons">
+        <button type="button" class="btn btn-back" onclick="previousPage();">&larr; Back</button>
+        <button type="button" class="btn btn-next" onclick="nextPage()">Next &rarr;</button>
+      </div>
+    </div>
+
+    <div class="form-section" id="page3">
+      <div class="progress-indicator">Step 3 of 3: Review & Submit</div>
+      <h2 class="page-title">Review Your Application</h2>
+
+      <div style="background: #f9f9f9; padding: 20px; border-radius: 5px; margin-bottom: 20px;">
+        <p style="color: #666; font-size: 14px;">Please review your information below. If you need to make changes, click the Back button.</p>
+      </div>
+
+      <div id="reviewContent" style="background: #f5f5f5; padding: 20px; border-radius: 5px; margin-bottom: 20px; max-height: 400px; overflow-y: auto;">
+        <p style="color: #999;">Loading review...</p>
+      </div>
+
+      <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
+      <h3 style="color: #0A4216; margin-bottom: 15px;">Security Verification</h3>
+      <div style="background: #fff3cd; padding: 15px; border-radius: 5px; border-left: 4px solid #ff9800; margin-bottom: 20px;">
+        <div class="form-group">
+          <label id="captchaQuestion" style="font-weight: 700; color: #333; margin-bottom: 10px;">Captcha: What is 5 + 3?</label>
+          <input type="number" id="captchaAnswer" name="captchaAnswer" placeholder="Enter your answer" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px; box-sizing: border-box;" required>
+          <small style="color: #666; display: block; margin-top: 5px;">Please solve the math problem above to verify you are human.</small>
+        </div>
+      </div>
+
+      <div class="form-buttons">
+        <button type="button" class="btn btn-back" onclick="previousPage();">&larr; Back</button>
+        <button type="submit" class="btn btn-submit">Submit Application</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<footer>
+  <div class="footer-main">
+    <div class="contact-details">
+      <img src="icons/StaffAllianceLogo.svg" alt="Staff Alliance Logo" width="200" height="50">
+      <h2>Our Details</h2>
+      <a href="mailto:info@staff-alliance.com">info@staff-alliance.com</a>
+      <div class="social-footer">
+        <a href="https://www.facebook.com/p/Staff-Alliance-Inc-61553129624707/" target="_blank">
+          <img src="icons/Facebook.svg" alt="Facebook">
+        </a>
+        <a href="https://www.linkedin.com/company/staff-alliance-inc-" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#000"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 24V7h5v17H0zm7.5-17h4.8v2.3h.1c.7-1.3 2.4-2.6 4.9-2.6 5.2 0 6.1 3.4 6.1 7.9V24h-5v-7.7c0-1.8 0-4.1-2.5-4.1s-2.9 2-2.9 4v7.8h-5V7z"/></svg>
+        </a>
+      </div>
+      
+    </div>
+    <div class="footer-bottom">
+      <a href="privacypolicy.html" class="privacy">Privacy Policy</a>
+      <p class="copyright">@2026 Copyright</p>
+    </div>
+    <div class="locations">
+      <div class="location">
+        <h3>MANILA</h3>
+        <p>4F Tower 6789<br>6789 Ayala Ave., Makati City<br>(032) 8814-0914 to 16<br>Fax: (032) 8814-0914 local 148</p>
+      </div>
+      <div class="location">
+        <h3>CEBU</h3>
+        <p>11F AppleOne Equicom Tower<br>Mindanao Ave., cor. Biliran Rd.,<br>Cebu Business Park, Cebu City<br>(032) 230-4873</p>
+      </div>
+      <div class="location">
+        <h3>DAVAO</h3>
+        <p>6F Felcris Centrale<br>40-D Quimpo Boulevard,<br>Talomo (Pob.), Davao City<br>(082) 225-4264</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const jobParam = urlParams.get('job');
+  if (jobParam) {
+    document.getElementById('position').value = jobParam;
+  }
+
+  // Generate random captcha borrowed code from the internet
+  let correctAnswer = 0;
+  function generateCaptcha() {
+    const num1 = Math.floor(Math.random() * 50) + 1; 
+    const num2 = Math.floor(Math.random() * 50) + 1;  
+    correctAnswer = num1 + num2;
+    document.getElementById('captchaQuestion').textContent = `Captcha: What is ${num1} + ${num2}?`;
+    document.getElementById('captchaAnswer').value = '';
+  }
+
+  let currentPage = 1;
+  const totalPages = 3;
+
+  function showPage(page) {
+    document.querySelectorAll('.form-section').forEach(section => {
+      section.classList.remove('active');
+    });
+    document.getElementById('page' + page).classList.add('active');
+    currentPage = page;
+
+    if (page === 3) {
+      generateReview();
+      generateCaptcha();
+    }
+  }
+
+  function nextPage() {
+    if (validatePage(currentPage)) {
+      if (currentPage < totalPages) {
+        showPage(currentPage + 1);
+      }
+    }
+  }
+
+  function previousPage() {
+    if (currentPage > 1) {
+      showPage(currentPage - 1);
+    }
+  }
+
+  function validatePage(page) {
+   
+    const pageEl = document.getElementById('page' + page);
+    if (!pageEl) return true;
+
+    const elements = pageEl.querySelectorAll('input, select, textarea');
+    for (let el of elements) {
+     
+      if (el.required && !el.checkValidity()) {
+       
+        el.focus();
+        alert('Please fill in all required fields on this step correctly.');
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  function addFamilyMember() {
+    const container = document.getElementById('familyMembers');
+    const count = container.children.length + 1;
+    const html = `
+      <div class="family-member">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="family-name">
+          </div>
+          <div class="form-group">
+            <label>Relationship</label>
+            <select class="family-relationship">
+              <option value="">-- Select --</option>
+              <option value="Father">Father</option>
+              <option value="Mother">Mother</option>
+              <option value="Brother">Brother</option>
+              <option value="Sister">Sister</option>
+              <option value="Spouse">Spouse</option>
+              <option value="Child">Child</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Birth Date</label>
+            <input type="date" class="family-birthdate">
+          </div>
+          <div class="form-group">
+            <label>Present Occupation</label>
+            <input type="text" class="family-occupation">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Address</label>
+          <input type="text" class="family-address">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Company Name/School Attained</label>
+            <input type="text" class="family-company">
+          </div>
+          <div class="form-group">
+            <label>Year Level</label>
+            <input type="text" class="family-yearlevel">
+          </div>
+        </div>
+      </div>
+    `;
+    container.insertAdjacentHTML('beforeend', html);
+  }
+
+  function addEducation() {
+    const container = document.getElementById('educationRecords');
+    const count = container.children.length + 1;
+    const html = `
+      <div class="education-record">
+        <div class="form-group">
+          <label>School/University Attained</label>
+          <input type="text" class="edu-school">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Course/Year Level</label>
+            <input type="text" class="edu-course">
+          </div>
+          <div class="form-group">
+            <label>Year Completed/Attended</label>
+            <input type="text" class="edu-year">
+          </div>
+        </div>
+      </div>
+    `;
+    container.insertAdjacentHTML('beforeend', html);
+  }
+
+  function addWorkExperience() {
+    const container = document.getElementById('workExperience');
+    const count = container.children.length + 1;
+    const html = `
+      <div class="work-experience">
+        <div class="form-group">
+          <label>Company Name</label>
+          <input type="text" class="work-company">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Position</label>
+            <input type="text" class="work-position">
+          </div>
+          <div class="form-group">
+            <label>Duration (e.g., 2020-2023)</label>
+            <input type="text" class="work-duration">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Job Description</label>
+          <textarea class="work-description" placeholder="Brief description of your responsibilities"></textarea>
+        </div>
+      </div>
+    `;
+    container.insertAdjacentHTML('beforeend', html);
+  }
+
+  function generateReview() {
+    const position = document.getElementById('position').value;
+    const personal = {
+      surname: document.getElementById('surname').value,
+      firstname: document.getElementById('firstname').value,
+      middlename: document.getElementById('middlename').value,
+      presentaddress: document.getElementById('presentaddress').value,
+      provincialaddress: document.getElementById('provincialaddress').value,
+      telephone: document.getElementById('telephone').value,
+      mobileno: document.getElementById('mobileno').value,
+      emailaddress: document.getElementById('emailaddress').value,
+      sex: document.getElementById('sex').value,
+      civilstatus: document.getElementById('civilstatus').value,
+      birthdate: document.getElementById('birthdate').value,
+      nationality: document.getElementById('nationality').value,
+      sssno: document.getElementById('sssno').value,
+      tinno: document.getElementById('tinno').value,
+      philhealthno: document.getElementById('philhealthno').value,
+      height: document.getElementById('height').value,
+      weight: document.getElementById('weight').value,
+      physicalcondition: document.getElementById('physicalcondition').value
+    };
+
+    const family = collectFamilyData();
+    const education = collectEducationData();
+    const work = collectWorkData();
+
+    let review = `<strong>Position:</strong> ${position}<br><br>`;
+    review += `<strong>Personal Information</strong><br>`;
+    review += `Name: ${personal.surname}, ${personal.firstname} ${personal.middlename}<br>`;
+    review += `Present Address: ${personal.presentaddress}<br>`;
+    if (personal.provincialaddress) review += `Provincial Address: ${personal.provincialaddress}<br>`;
+    if (personal.telephone) review += `Telephone: ${personal.telephone}<br>`;
+    review += `Mobile: ${personal.mobileno}<br>`;
+    review += `Email: ${personal.emailaddress}<br>`;
+    review += `Sex: ${personal.sex} | Civil Status: ${personal.civilstatus} | Birthdate: ${personal.birthdate}<br>`;
+    review += `Nationality: ${personal.nationality}<br>`;
+    if (personal.sssno) review += `SSS: ${personal.sssno} `;
+    if (personal.tinno) review += `TIN: ${personal.tinno} `;
+    if (personal.philhealthno) review += `PhilHealth: ${personal.philhealthno}`;
+    review += `<br>`;
+    if (personal.height || personal.weight) review += `Height: ${personal.height} cm | Weight: ${personal.weight} kg<br>`;
+    if (personal.physicalcondition) review += `Physical Condition: ${personal.physicalcondition}<br>`;
+
+    review += `<br><strong>Family Background</strong><br>`;
+    if (family.length === 0) {
+      review += `No family members entered.<br>`;
+    } else {
+      family.forEach((f, i) => {
+        review += `${i+1}. ${f.name} (${f.relationship}) - Birth: ${f.birthdate} - Occupation: ${f.occupation} - Address: ${f.address} - Company/School: ${f.company} - Year Level: ${f.yearlevel}<br>`;
+      });
+    }
+
+    review += `<br><strong>Education</strong><br>`;
+    if (education.length === 0) {
+      review += `No education records entered.<br>`;
+    } else {
+      education.forEach((e, i) => {
+        review += `${i+1}. ${e.school} - ${e.course} - ${e.year}<br>`;
+      });
+    }
+
+    review += `<br><strong>Work Experience</strong><br>`;
+    if (work.length === 0) {
+      review += `No work experience entered.<br>`;
+    } else {
+      work.forEach((w, i) => {
+        review += `${i+1}. ${w.company} - ${w.position} (${w.duration})<br>`;
+        if (w.description) review += `&nbsp;&nbsp;&nbsp;Description: ${w.description}<br>`;
+      });
+    }
+
+    review += `<br><em>Please click Submit to send your application, or Back to edit.</em>`;
+
+    document.getElementById('reviewContent').innerHTML = review;
+  }
+
+  function collectFamilyData() {
+    const familyMembers = [];
+    document.querySelectorAll('.family-member').forEach(member => {
+      familyMembers.push({
+        name: member.querySelector('.family-name').value || '',
+        relationship: member.querySelector('.family-relationship').value || '',
+        birthdate: member.querySelector('.family-birthdate').value || '',
+        occupation: member.querySelector('.family-occupation').value || '',
+        address: member.querySelector('.family-address').value || '',
+        company: member.querySelector('.family-company').value || '',
+        yearlevel: member.querySelector('.family-yearlevel').value || ''
+      });
+    });
+    return familyMembers;
+  }
+
+  function collectEducationData() {
+    const education = [];
+    document.querySelectorAll('.education-record').forEach(record => {
+      education.push({
+        school: record.querySelector('.edu-school').value || '',
+        course: record.querySelector('.edu-course').value || '',
+        year: record.querySelector('.edu-year').value || ''
+      });
+    });
+    return education;
+  }
+
+  function collectWorkData() {
+    const work = [];
+    document.querySelectorAll('.work-experience').forEach(record => {
+      work.push({
+        company: record.querySelector('.work-company').value || '',
+        position: record.querySelector('.work-position').value || '',
+        duration: record.querySelector('.work-duration').value || '',
+        description: record.querySelector('.work-description').value || ''
+      });
+    });
+    return work;
+  }
+
+  document.getElementById('applicationForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Validate captcha
+    const captchaInput = parseInt(document.getElementById('captchaAnswer').value);
+    if (isNaN(captchaInput) || captchaInput !== correctAnswer) {
+      alert('Incorrect captcha answer. Please try again.');
+      generateCaptcha();
+      return;
+    }
+
+    const templateParams = {
+      position: document.getElementById('position').value,
+      surname: document.getElementById('surname').value,
+      firstname: document.getElementById('firstname').value,
+      middlename: document.getElementById('middlename').value,
+      presentaddress: document.getElementById('presentaddress').value,
+      provincialaddress: document.getElementById('provincialaddress').value,
+      telephone: document.getElementById('telephone').value,
+      mobileno: document.getElementById('mobileno').value,
+      emailaddress: document.getElementById('emailaddress').value,
+      sex: document.getElementById('sex').value,
+      civilstatus: document.getElementById('civilstatus').value,
+      birthdate: document.getElementById('birthdate').value,
+      nationality: document.getElementById('nationality').value,
+      sssno: document.getElementById('sssno').value,
+      tinno: document.getElementById('tinno').value,
+      philhealthno: document.getElementById('philhealthno').value,
+      height: document.getElementById('height').value,
+      weight: document.getElementById('weight').value,
+      physicalcondition: document.getElementById('physicalcondition').value,
+      
+      name: (document.getElementById('firstname').value + ' ' + document.getElementById('surname').value).trim(),
+      time: new Date().toLocaleString(),
+      message: `Applying for job position (${document.getElementById('position').value})`,
+      familydata: JSON.stringify(collectFamilyData()),
+      educationdata: JSON.stringify(collectEducationData()),
+      workdata: JSON.stringify(collectWorkData()),
+      submission_date: new Date().toLocaleString()
+    };
+
+    
+    const proceed = confirm('This form will be submitted for review of application.\n\nClick OK to proceed or Cancel to abort.');
+    if (!proceed) return;
+
+    emailjs.send('service_ukow92x', 'template_oua0h73', templateParams)
+      .then(function(response) {
+        document.getElementById('successMessage').style.display = 'block';
+        document.getElementById('applicationForm').style.display = 'none';
+        setTimeout(() => {
+          window.location.href = 'jobs.html';
+        }, 3000);
+      }, function(error) {
+        document.getElementById('errorMessage').style.display = 'block';
+        document.getElementById('errorMessage').textContent = 'Error submitting application. Please try again.';
+      });
+  });
+</script>
+
+</body>
+</html>

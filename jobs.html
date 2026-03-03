@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Yeseva+One&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home_Page</title>
+<link rel="icon" type="image/x-icon" href="icons/logo.svg">
+</head>
+<body>
+
+<header>
+  <a href="home.html" class="logo">
+    <img src="icons/StaffAllianceLogo.svg" alt="Staff Alliance Logo" width="200" height="50">
+  </a>
+  <nav class="navbar">
+    <a href="aboutUs.html">About Us</a>
+    <a href="whatWeDo.html">What We Do</a>
+    <a href="jobs.html">Jobs</a>
+    <a href="update.html">Update</a>
+    <div class="dropdown">
+      <button class="dropbtn contact" onclick="window.location.href='contactUs.html'">Contact Us</button>
+      <div class="dropdown-content" style="display: none;">
+        <a href="contactUs.html">Apply Now</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="job-search-section animate-on-scroll">
+  <h1 id="jobs-heading">Jobs for Filipinos</h1>
+  <div class="job-search">
+    <input type="text" placeholder="Search jobs...">
+    <select id="location-filter">
+      <option value="">Select location</option>
+      <option value="makati">Makati</option>
+      <option value="ortigas">Ortigas</option>
+      <option value="pasay">Pasay</option>
+      <option value="bgc">BGC</option>
+      <option value="mandaluyong">Mandaluyong</option>
+    </select>
+  </div>
+</div> 
+
+<div class="job-grid animate-on-scroll">
+  <div class="job-box" data-locations="makati,ortigas" data-job="Office Staff">
+    <div class="job-summary">
+      <span class="job-title">Office Staff</span>
+      <span class="job-location">Makati or Ortigas</span>
+    </div>
+    <div class="job-details">
+      <h4>Job Responsibilities   
+      </h4>
+      <ul>
+        <li>Filing of documents</li>
+        <li>Performing clerical works</li>
+        <li>Answering phone calls</li>
+      </ul>
+      <h4>Job Qualifications:</h4>
+      <ul>
+        <li>A graduate of a Bachelor’s Degree in Business Administration, Information Technology or Computer Science</li>
+        <li>Willing to work in Ortigas or Makati</li>
+        <li>Willing to render overtime</li>
+        <li>Willing to accept minimum wage – PHP537/day</li>
+        <li>Can start as soon as possible</li>
+      </ul>
+      <div style="text-align: right; margin-top: 15px;">
+        <a href="apply.html?job=Office Staff" class="apply-job-btn">Apply Now</a>
+      </div>
+    </div>
+  </div>
+  <div class="job-box" data-locations="makati,ortigas" data-job="Bank Clerk">
+    <div class="job-summary">
+      <span class="job-title">Bank Clerk</span>
+      <span class="job-location">Makati or Ortigas</span>
+    </div>
+    <div class="job-details">
+      <h4>Job Responsibilities:</h4>
+      <ul>
+        <li>Filing of documents</li>
+        <li>Performing clerical works</li>
+        <li>Answering phone calls</li>
+      </ul>
+      <h4>Job Qualifications:</h4>
+      <ul>
+        <li>A graduate of a Bachelor’s Degree in Business Administration, Information Technology or Computer Science</li>
+        <li>Willing to work in Ortigas or Makati</li>
+        <li>Willing to render overtime</li>
+        <li>Willing to accept minimum wage – PHP537/day</li>
+        <li>Can start as soon as possible</li>
+      </ul>
+      <div style="text-align: right; margin-top: 15px;">
+        <a href="apply.html?job=Bank Clerk" class="apply-job-btn">Apply Now</a>
+      </div>
+    </div>
+  </div>
+  <div class="job-box" data-locations="makati" data-job="Finance Assistant">
+    <div class="job-summary">
+      <span class="job-title">Finance Assistant</span>
+      <span class="job-location">Makati</span>
+    </div>
+    <div class="job-details">
+      <h4>Job Responsibilities:</h4>
+      <ul>
+        <li>Assist the Accounting Team in performing accounting tasks and clerical functions</li>
+      </ul>
+      <h4>Job Qualifications:</h4>
+      <ul>
+        <li>A graduate of a Bachelor's Degree in any Accounting related course i.e. Accounting Technology, Management Accounting or Financial Accounting or Financial Management</li>
+        <li>Willing to work in Makati</li>
+        <li>Willing to render overtime</li>
+        <li>Can start as soon as possible</li>
+      </ul>
+      <div style="text-align: right; margin-top: 15px;">
+        <a href="apply.html?job=Finance Assistant" class="apply-job-btn">Apply Now</a>
+      </div>
+    </div>
+  </div>
+  <div class="job-box" data-locations="pasay,bgc,taguig" data-job="Customer Service Assistant">
+    <div class="job-summary">
+      <span class="job-title">Customer Service Assistant</span>
+      <span class="job-location">Pasay and BGC, Taguig</span>
+    </div>
+    <div class="job-details">
+      <h4>Job Responsibilities:</h4>
+      <ul>
+        <li>Assist in customer and client concerns</li>
+        <li>Answer phone calls to resolve the said concerns</li>
+        <li>Document what transpired during the call</li>
+      </ul>
+      <h4>Job Qualifications:</h4>
+      <ul>
+        <li>A graduate of any Bachelor’s Degree or Associate’s Degree</li>
+        <li>High School graduates and College undergrads may also be accepted</li>
+        <li>Vacancies available in Pasay, or BGC</li>
+        <li>Willing to render overtime</li>
+        <li>Can start as soon as possible</li>
+      </ul>
+      <div style="text-align: right; margin-top: 15px;">
+        <a href="apply.html?job=Customer Service Assistant" class="apply-job-btn">Apply Now</a>
+      </div>
+    </div>
+  </div>
+  <div class="job-box" data-locations="mandaluyong" data-job="Production Helper">
+    <div class="job-summary">
+      <span class="job-title">Production Helper</span>
+      <span class="job-location">Mandaluyong</span>
+    </div>
+    <div class="job-details">
+      <h4>Job Responsibilities:</h4>
+      <ul>
+        <li>Help in the production of pastries, bread and food products</li>
+        <li>Carry boxes and equipment needed for production</li>
+      </ul>
+      <h4>Job Qualifications:</h4>
+      <ul>
+        <li>At least a High School graduate</li>
+        <li>Willing to work in Mandaluyong</li>
+        <li>Willing to render overtime</li>
+        <li>Can start as soon as possible</li>
+      </ul>
+      <div style="text-align: right; margin-top: 15px;">
+        <a href="apply.html?job=Production Helper" class="apply-job-btn">Apply Now</a>
+      </div>
+    </div>
+  </div>
+  <div class="job-box" data-locations="makati" data-job="Janitor">
+    <div class="job-summary">
+      <span class="job-title">Janitor</span>
+      <span class="job-location">Makati</span>
+    </div>
+    <div class="job-details">
+      <h4>Job Responsibilities:</h4>
+      <ul>
+        <li>Clean the office / area by mopping and/or using cleaning materials</li>
+        <li>Take out the garbage and empty bins and cans</li>
+        <li>Perform messengerial duties if needed</li>
+      </ul>
+      <h4>Job Qualifications:</h4>
+      <ul>
+        <li>At least a High School graduate</li>
+        <li>Willing to work in Makati</li>
+        <li>Willing to render overtime</li>
+        <li>Can start as soon as possible</li>
+      </ul>
+      <div style="text-align: right; margin-top: 15px;">
+        <a href="apply.html?job=Janitor" class="apply-job-btn">Apply Now</a>
+      </div>
+    </div>
+  </div>
+</div> 
+
+<footer>
+  <div class="footer-main">
+    <div class="contact-details">
+      <img src="icons/StaffAllianceLogo.svg" alt="Staff Alliance Logo" width="200" height="50">
+      <h2>Our Details</h2>
+      <a href="mailto:info@staff-alliance.com">info@staff-alliance.com</a>
+      <div class="social-footer">
+        <a href="https://www.facebook.com/p/Staff-Alliance-Inc-61553129624707/" target="_blank">
+          <img src="icons/Facebook.svg" alt="Facebook">
+        </a>
+        <a href="https://www.linkedin.com/company/staff-alliance-inc-" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#000"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 24V7h5v17H0zm7.5-17h4.8v2.3h.1c.7-1.3 2.4-2.6 4.9-2.6 5.2 0 6.1 3.4 6.1 7.9V24h-5v-7.7c0-1.8 0-4.1-2.5-4.1s-2.9 2-2.9 4v7.8h-5V7z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="locations">
+      <div class="location">
+        <h3>MANILA</h3>
+        <p>4F Tower 6789<br>6789 Ayala Ave., Makati City<br>(032) 8814-0914 to 16<br>Fax: (032) 8814-0914 local 148</p>
+      </div>
+      <div class="location">
+        <h3>CEBU</h3>
+        <p>11F AppleOne Equicom Tower<br>Mindanao Ave., cor. Biliran Rd.,<br>Cebu Business Park, Cebu City<br>(032) 230-4873</p>
+      </div>
+      <div class="location">
+        <h3>DAVAO</h3>
+        <p>6F Felcris Centrale<br>40-D Quimpo Boulevard,<br>Talomo (Pob.), Davao City<br>(082) 225-4264</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Staff Alliance. All rights reserved.</p>
+    <a href="#">Privacy Policy</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

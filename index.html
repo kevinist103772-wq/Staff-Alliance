@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--imports for fonts & style-->
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Yeseva+One&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home_Page</title>
+<link rel="icon" type="image/x-icon" href="icons/logo.svg">
+</head>
+
+<body>
+  
+<header>
+  <a href="home.html" class="logo">
+    <img src="icons/StaffAllianceLogo.svg" alt="Staff Alliance Logo" width="200" height="50">
+  </a>
+  <nav class="navbar">
+    <a href="aboutUs.html">About Us</a>
+    <a href="whatWeDo.html">What We Do</a>
+    <a href="jobs.html">Jobs</a>
+    <a href="update.html">Update</a>
+    <div class="dropdown">
+      <button class="dropbtn contact" onclick="window.location.href='contactUs.html'">Contact Us</button>
+      <div class="dropdown-content" style="display: none;">
+        <a href="contactUs.html">Apply Now</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="contenthome animate-on-scroll">
+
+  <div class="hero-carousel animate-on-scroll">
+    <button class="carousel-prev">&#10094;</button>
+    <div class="carousel-slides">
+      <img src="staff-alliance.jpg" class="hero-slide" alt="Staff Alliance">
+      <img src="staff-alliance1.png" class="hero-slide" alt="Staff Alliance 1">
+      <img src="staff-alliance2.png" class="hero-slide" alt="Staff Alliance 2">
+    </div>
+    <button class="carousel-next">&#10095;</button>
+    <div class="hero-overlay">
+      <h1>To achieve success through righteous ways</h1>
+      <p>Staff Alliance, Inc. is a company dedicated to the ideals of integrity, honesty and professionalism in service, committed to make a difference in the industry and in the community.</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <a href="privacypolicy.html" class="privacy">Privacy Policy</a>
+    <p class="copyright">@2026 Copyright</p>
+  </div>
+
+  <div class="company-section animate-on-scroll">
+    <h2>Our Company</h2>
+    <div class="company-content">
+      <div class="company-text">
+        <p>Staff Alliance is a Filipino-owned corporation, duly registered with the Securities and Exchange Commission (SEC) with more than Php40 Million in paid-up capital, and registered with the Department of Labor and Employment (DOLE) under DO No. 174 and with the National Privacy Commission (NPC) under the Data Privacy Act of 2012.</p>
+        
+        <p>Primarily an HR solutions provider, it caters to various industries that include banking, manufacturing, financing, insurance, real estate, hospitality, logistics, hospital, healthcare, food, and BPO, among others.</p>
+
+        <p>Living up to our core values of integrity, professionalism and honest service, we choose to take the road of hard work and perseverance to reach our goals. We strive to provide quality service at all times, by properly training our staff, constantly updating our systems and procedures, and diligently complying with labor laws and regulations.</p>
+      </div>
+      <div class="company-images">
+        <img src="photo 1.png" alt="What We Do" class="company-photo">
+        <img src="photo 2.png" alt="Our Achievements" class="company-photo">
+      </div>
+    </div>
+  </div>
+
+  <div class="map-section-featured">
+    <h2>Find Us</h2>
+    <p>Visit our offices nationwide. Staff Alliance is located in key business districts to serve you better.</p>
+    <div class="map-widget-container-featured">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.6491!2d121.0157!3d14.56192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c908882512f7%3A0x5ff193e20efc380d!2sStaff%20Alliance%2C%20Inc.%20-%206789%20Ayala%20Ave%2C%20Makati%2C%201226%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1709427000000"
+        allowfullscreen="" 
+        loading="lazy">
+      </iframe>
+    </div>
+  </div>
+
+  <div class="jobs-section-home animate-on-scroll">
+    <h2>Current Job Opportunities</h2>
+    <p>Jumpstart your career with us. Explore our latest openings below.</p>
+    <div class="jobs-grid">
+      <div class="job-card-home">
+        <div class="job-icon">💼</div>
+        <h3>Office Staff</h3>
+        <span class="job-location-home">📍 Makati or Ortigas</span>
+        <p>Responsibilities include filing documents, clerical work, and answering phone calls.</p>
+        <a href="jobs.html" class="apply-btn-home">Apply Now</a>
+      </div>
+      <div class="job-card-home">
+        <div class="job-icon">🏦</div>
+        <h3>Bank Clerk</h3>
+        <span class="job-location-home">📍 Makati or Ortigas</span>
+        <p>Graduate of Business, IT, or Computer Science. Must be willing to start ASAP.</p>
+        <a href="jobs.html" class="apply-btn-home">Apply Now</a>
+      </div>
+      <div class="job-card-home">
+        <div class="job-icon">💰</div>
+        <h3>Finance Assistant</h3>
+        <span class="job-location-home">📍 Makati City</span>
+        <p>Support the accounting team with clerical functions and management reporting.</p>
+        <a href="jobs.html" class="apply-btn-home">Apply Now</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function(){
+    let heroIndex = 0;
+    const heroSlides = document.querySelectorAll('.hero-carousel .hero-slide');
+    const showHero = (n) => {
+      heroSlides.forEach((s,i)=> s.style.display = i===n ? 'block' : 'none');
+    };
+    const nextHero = () => { heroIndex = (heroIndex + 1) % heroSlides.length; showHero(heroIndex); };
+    const prevHero = () => { heroIndex = (heroIndex - 1 + heroSlides.length) % heroSlides.length; showHero(heroIndex); };
+    document.querySelector('.hero-carousel .carousel-next').addEventListener('click', nextHero);
+    document.querySelector('.hero-carousel .carousel-prev').addEventListener('click', prevHero);
+    showHero(heroIndex);
+    setInterval(nextHero, 6000);
+  })();
+</script>
+
+<footer>
+  <div class="footer-main">
+    <div class="contact-details">
+      <img src="icons/StaffAllianceLogo.svg" alt="Staff Alliance Logo" width="200" height="50">
+      <h2>Our Details</h2>
+      <a href="mailto:info@staff-alliance.com">info@staff-alliance.com</a>
+      <div class="social-footer">
+        <a href="https://www.facebook.com/p/Staff-Alliance-Inc-61553129624707/" target="_blank">
+          <img src="icons/Facebook.svg" alt="Facebook">
+        </a>
+        <a href="https://www.linkedin.com/company/staff-alliance-inc-" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#000"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 24V7h5v17H0zm7.5-17h4.8v2.3h.1c.7-1.3 2.4-2.6 4.9-2.6 5.2 0 6.1 3.4 6.1 7.9V24h-5v-7.7c0-1.8 0-4.1-2.5-4.1s-2.9 2-2.9 4v7.8h-5V7z"/></svg>
+        </a>
+      </div>
+      
+    </div>
+    <div class="locations">
+      <div class="location">
+        <h3>MANILA</h3>
+        <p>4F Tower 6789<br>6789 Ayala Ave., Makati City<br>(032) 8814-0914 to 16<br>Fax: (032) 8814-0914 local 148</p>
+      </div>
+      <div class="location">
+        <h3>CEBU</h3>
+        <p>11F AppleOne Equicom Tower<br>Mindanao Ave., cor. Biliran Rd.,<br>Cebu Business Park, Cebu City<br>(032) 230-4873</p>
+      </div>
+      <div class="location">
+        <h3>DAVAO</h3>
+        <p>6F Felcris Centrale<br>40-D Quimpo Boulevard,<br>Talomo (Pob.), Davao City<br>(082) 225-4264</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

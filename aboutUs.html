@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Yeseva+One&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home_Page</title>
+<link rel="icon" type="image/x-icon" href="icons/logo.svg">
+</head>
+
+<body>
+<header>
+  <a href="home.html" class="logo">
+    <img src="icons/StaffAllianceLogo.svg" alt="Staff Alliance Logo" width="200" height="50">
+  </a>
+  <nav class="navbar">
+    <a href="aboutUs.html">About Us</a>
+    <a href="whatWeDo.html">What We Do</a>
+    <a href="jobs.html">Jobs</a>
+    <a href="update.html">Update</a>
+    <div class="dropdown">
+      <button class="dropbtn contact" onclick="window.location.href='contactUs.html'">Contact Us</button>
+      <div class="dropdown-content" style="display: none;">
+        <a href="contactUs.html">Apply Now</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+<div class="about-carousel animate-on-scroll">
+  <div class="carousel-slides">
+    <img src="aboutus2.jpg" class="about-slide" alt="About Us 2">
+    <img src="aboutus3.jpg" class="about-slide" alt="About Us 3">
+  </div>
+  <div class="about-overlay">
+    <h2>ABOUT US</h2>
+  </div>
+</div>
+
+<script>
+  (function(){
+    let aboutIndex = 0;
+    const slideNodes = Array.from(document.querySelectorAll('.about-carousel .about-slide'));
+
+    const slides = slideNodes.filter(img => img && img.getAttribute('src'));
+
+
+    slides.forEach(s => { s.style.display = 'none'; });
+
+
+    slides.forEach((img, idx) => {
+      img.addEventListener('error', () => {
+        img.style.display = 'none';
+        slides.splice(slides.indexOf(img), 1);
+        if (aboutIndex >= slides.length) aboutIndex = 0;
+      });
+    });
+
+    const showAbout = (n) => {
+      if (!slides.length) return;
+      slides.forEach((s,i)=> s.style.display = i===n ? 'block' : 'none');
+    };
+
+    const nextAbout = () => { if (!slides.length) return; aboutIndex = (aboutIndex + 1) % slides.length; showAbout(aboutIndex); };
+    const prevAbout = () => { if (!slides.length) return; aboutIndex = (aboutIndex - 1 + slides.length) % slides.length; showAbout(aboutIndex); };
+
+    const nextBtn = document.querySelector('.about-carousel .carousel-next');
+    const prevBtn = document.querySelector('.about-carousel .carousel-prev');
+    if (nextBtn) nextBtn.addEventListener('click', nextAbout);
+    if (prevBtn) prevBtn.addEventListener('click', prevAbout);
+
+    const initShow = () => { if (slides.length) showAbout(aboutIndex); };
+
+    const loadPromises = slides.map(img => new Promise(resolve => {
+      if (img.complete) return resolve();
+      img.addEventListener('load', resolve);
+      img.addEventListener('error', resolve);
+    }));
+
+    Promise.all(loadPromises).then(initShow);
+    setInterval(nextAbout, 6000);
+  })();
+</script>
+
+<div class="about-main animate-on-scroll">
+    <h2>Our Company</h2>
+    <p>Staff Alliance, Inc. is a wholly Filipino-owned corporation borne out of the ideal of genuine partnership. For us, being a true ally is nothing short of conducting our business in the highest standards of moral values. Since our initial operations in 1993, we have stayed true to this work ethic and thereby gained the trust and patronage of corporations.</p>
+    
+    <p>As an HR solutions provider, Staff Alliance, Inc. continuously strives to make a difference in the industry where it belongs. We define our success through the lens of the identity we endeavor to create.</p>
+
+    <div class="division-box">
+        <div class="division">
+            <img src="jobasia.jpg" alt="Outsourced Services" class="division-img">
+            <h3>Outsourced Services Division</h3>
+            <p>Serves companies who farm out business processes, providing competent and able-bodied staff for various business processes like coding, telemarketing, front desk, customer assistance, accounting, and technical processes.</p>
+        </div>
+        <div class="division">
+            <img src="cleanserve.jpg" alt="Custodial Services" class="division-img">
+            <h3>Custodial Services Division</h3>
+            <p>Addresses needs for long-term janitorial and messengerial services, providing efficient, reliable, and trustworthy staff.</p>
+        </div>
+    </div>
+
+    <div class="affiliate-section">
+        <p>To know more about our affiliate company, <strong>EJ Hall Consultants</strong>,</p>
+        <p>you may visit <a href="http://www.ejhallconsultants.com" target="_blank" class="affiliate-link">www.ejhallconsultants.com</a></p>
+    </div>
+</div>
+
+<footer>
+  <div class="footer-main">
+    <div class="contact-details">
+      <img src="icons/StaffAllianceLogo.svg" alt="Staff Alliance Logo" width="200" height="50">
+      <h2>Our Details</h2>
+      <a href="mailto:info@staff-alliance.com">info@staff-alliance.com</a>
+      <div class="social-footer">
+        <a href="https://www.facebook.com/p/Staff-Alliance-Inc-61553129624707/" target="_blank">
+          <img src="icons/Facebook.svg" alt="Facebook">
+        </a>
+        <a href="https://www.linkedin.com/company/staff-alliance-inc-" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#000"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 24V7h5v17H0zm7.5-17h4.8v2.3h.1c.7-1.3 2.4-2.6 4.9-2.6 5.2 0 6.1 3.4 6.1 7.9V24h-5v-7.7c0-1.8 0-4.1-2.5-4.1s-2.9 2-2.9 4v7.8h-5V7z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="locations">
+      <div class="location">
+        <h3>MANILA</h3>
+        <p>4F Tower 6789<br>6789 Ayala Ave., Makati City<br>(032) 8814-0914 to 16<br>Fax: (032) 8814-0914 local 148</p>
+      </div>
+      <div class="location">
+        <h3>CEBU</h3>
+        <p>11F AppleOne Equicom Tower<br>Mindanao Ave., cor. Biliran Rd.,<br>Cebu Business Park, Cebu City<br>(032) 230-4873</p>
+      </div>
+      <div class="location">
+        <h3>DAVAO</h3>
+        <p>6F Felcris Centrale<br>40-D Quimpo Boulevard,<br>Talomo (Pob.), Davao City<br>(082) 225-4264</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Staff Alliance. All rights reserved.</p>
+    <a href="#">Privacy Policy</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
