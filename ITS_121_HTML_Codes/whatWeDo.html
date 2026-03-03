@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Yeseva+One&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home_Page</title>
+<link rel="icon" type="image/x-icon" href="icons/logo.svg">
+<style>
+  .content1 {
+    margin-top: 60px; 
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .content1 h1 {
+    font-size: 60px;
+    margin-bottom: 60px;
+  }
+
+  .cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    background-color: #ffffff;
+    color: #333;
+    width: 320px;
+    padding: 40px 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-10px);
+  }
+
+  .card h2 {
+    color: SeaGreen;
+    margin-bottom: 20px;
+    font-size: 26px;
+  }
+
+  .card p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+</style>
+</head>
+
+<body>
+<header>
+  <a href="home.html" class="logo">
+    <img src="icons/StaffAllianceLogo.svg" alt="Staff Alliance Logo" width="200" height="50">
+  </a>
+  <nav class="navbar">
+    <a href="aboutUs.html">About Us</a>
+    <a href="whatWeDo.html">What We Do</a>
+    <a href="jobs.html">Jobs</a>
+    <a href="update.html">Update</a>
+    <div class="dropdown">
+      <button class="dropbtn contact" onclick="window.location.href='contactUs.html'">Contact Us</button>
+      <div class="dropdown-content" style="display: none;">
+        <a href="contactUs.html">Apply Now</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="content1">
+  <h1>What We Do</h1>
+
+  <div class="cards-container">
+
+    <div class="card">
+      <h2>For Our Clients</h2>
+      <p>
+        We provide honest and quality service while building long-term
+        partnerships. We ensure efficiency, professionalism, and reliability
+        in every engagement to support our clients' success.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>For Our Staff</h2>
+      <p>
+        We look after their welfare and ensure fair and on-time wages,
+        proper benefits, and a supportive working environment that
+        promotes growth and stability.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>For Our Applicants</h2>
+      <p>
+        We guide them in pursuing career opportunities that help them grow
+        professionally and personally, matching them with roles that fit
+        their skills and aspirations.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+
+<footer>
+  <div class="footer-main">
+    <div class="contact-details">
+      <img src="icons/StaffAllianceLogo.svg" alt="Staff Alliance Logo" width="200" height="50">
+      <h2>Our Details</h2>
+      <a href="mailto:info@staff-alliance.com">info@staff-alliance.com</a>
+      <div class="social-footer">
+        <a href="https://www.facebook.com/p/Staff-Alliance-Inc-61553129624707/" target="_blank">
+          <img src="icons/Facebook.svg" alt="Facebook">
+        </a>
+        <a href="https://www.linkedin.com/company/staff-alliance-inc-" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#000"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 24V7h5v17H0zm7.5-17h4.8v2.3h.1c.7-1.3 2.4-2.6 4.9-2.6 5.2 0 6.1 3.4 6.1 7.9V24h-5v-7.7c0-1.8 0-4.1-2.5-4.1s-2.9 2-2.9 4v7.8h-5V7z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="locations">
+      <div class="location">
+        <h3>MANILA</h3>
+        <p>4F Tower 6789<br>6789 Ayala Ave., Makati City<br>(032) 8814-0914 to 16<br>Fax: (032) 8814-0914 local 148</p>
+      </div>
+      <div class="location">
+        <h3>CEBU</h3>
+        <p>11F AppleOne Equicom Tower<br>Mindanao Ave., cor. Biliran Rd.,<br>Cebu Business Park, Cebu City<br>(032) 230-4873</p>
+      </div>
+      <div class="location">
+        <h3>DAVAO</h3>
+        <p>6F Felcris Centrale<br>40-D Quimpo Boulevard,<br>Talomo (Pob.), Davao City<br>(082) 225-4264</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Staff Alliance. All rights reserved.</p>
+    <a href="#">Privacy Policy</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+</body>
+</html>
